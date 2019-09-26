@@ -3,7 +3,7 @@
 include 'Bugs.php';
 class BugManager{
     
-    private $bugs;
+    private $bugs=[];
 
     function getBugs() 
     {
@@ -23,12 +23,16 @@ class BugManager{
 
             $csv = new SplFileObject($fichier);
             $csv->setFlags(SplFileObject::READ_CSV);
-            $csv->setCsvControl(',');
+            $csv->setCsvControl(';');
 
             foreach($csv as $ligne){
-                    print_r($ligne);
+                
+                if($ligne[0]!=null){
+                $bug = new bug($ligne[0], $ligne[1]);
+                array_push($this->bugs, $bug);
+                }
 }
- 
+ return $this->bugs;
         
     }
     /** 
