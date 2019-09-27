@@ -11,13 +11,32 @@ $manager->load();
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="style.css" />
-       
+       <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
     </head>
-    <body>
-    <center> <h1>Liste de bugs</h1>
-        
-        <table>  
+    <body >
            
+        
+       <div class="table-title">
+           <center><h1>Liste de bugs</h1></center>
+</div>
+       
+    <center> <a href="add.php"><button class="buttonAdd"> Add</button></a></center>
+    <br></br>
+        
+<table class="table-fill">
+<thead>
+<tr>
+<th class="text-left">Id</th>
+<th class="text-left">Titre</th>
+<th class="text-left">Description</th>
+<th class="text-left">Action</th>
+
+
+</tr>
+</thead>
+<tbody class="table-hover">
+<tr>
+        
       <?php  
             $bugs = [];
             $bugManager=new bugManager($bugs);
@@ -25,12 +44,20 @@ $manager->load();
             foreach($bugs as $bug){ ?>
              <tr><td><?php
             echo $bug->getId();?></td>
-                <td><?php echo $bug->getDescription();?></td>
-            </tr><?php
+                <td><?php echo $bug->getTitre();?>
+            
+                </td>
+                <td><a href="show.php?id=<?=$bug->getId()?>">voir plus</a></td>
+                <td> </td>
+            </tr>
+                
+                <?php
                
                        
             }
            ?>
+</tr>
+   
            
 </table>     
     </center>

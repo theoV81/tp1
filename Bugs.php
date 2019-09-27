@@ -13,35 +13,52 @@ and open the template in the editor.
         <?php
         class bug {
                 
-                public $id;
-                public $description;
-
+                public $Id;
+                public $Description;
+                public $titre;
+                public $status;
                
+                function __construct($Id, $titre, $Description,$status) {
+                    $this->Id = $Id;
+                    $this->Description = $Description;
+                    $this->titre = $titre;
+                    $this->status = $status;
+                }
+
                 function getId() {
-                    return $this->id;
+                    return $this->Id;
                 }
 
                 function getDescription() {
-                    return $this->description;
+                    return $this->Description;
                 }
 
-                function setId($id) {
-                    $this->id = $id;
+                function getTitre() {
+                    return $this->titre;
                 }
 
-                function setDescription($description) {
-                    $this->description = $description;
-                }
-                function __construct($id, $description) {
-                    $this->id = $id;
-                    $this->description = $description;
+                function getStatus() {
+                    return $this->status;
                 }
 
+                function setId($Id) {
+                    $this->Id = $Id;
+                }
 
+                function setDescription($Description) {
+                    $this->Description = $Description;
+                }
 
+                function setTitre($titre) {
+                    $this->titre = $titre;
+                }
 
-            }
-
+                function setStatus($status) {
+                    $this->status = $status;
+                }
+                
+                           
+        }
         ?>
     </body>
 </html>
