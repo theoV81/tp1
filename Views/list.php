@@ -1,6 +1,6 @@
 <?php
 
-require('BugManager.php');
+require('../Models/BugManager.php');
 
 $manager = new BugManager();
 $manager->findAll();

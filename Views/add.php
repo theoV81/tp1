@@ -11,7 +11,7 @@ if (!empty($_POST)) {
     }
 
     // Save BDD
-    require('BugManager.php');
+    require('../Models/BugManager.php');
     $manager = new BugManager();
     $manager->add($_POST);
 

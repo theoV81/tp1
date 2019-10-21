@@ -1,5 +1,5 @@
 <?php
-require ('BugManager.php');
+require ('../Models/BugManager.php');
 
 $Id = $_GET['id'];
 $bugManager = new BugManager();

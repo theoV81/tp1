@@ -2,7 +2,7 @@
 <?php
 
 include('Bugs.php');
-require('Manager.php');
+require('../Manager.php');
 
 class BugManager extends Manager {
 
