@@ -3,7 +3,7 @@
 require('BugManager.php');
 
 $manager = new BugManager();
-$manager->load();
+$manager->findAll();
 ?>
 
 
@@ -29,8 +29,8 @@ $manager->load();
 <th class="text-left">Id</th>
 <th class="text-left">Titre</th>
 <th class="text-left">Description</th>
-<th class="text-left">Action</th>
-
+<th class="text-left">Date de creation</th>
+<th class="text-left">closed</th>
 
 </tr>
 </thead>
@@ -40,7 +40,7 @@ $manager->load();
       <?php  
             $bugs = [];
             $bugManager=new bugManager($bugs);
-            $bugs = $bugManager->load();
+            $bugs = $bugManager->findAll();
             foreach($bugs as $bug){ ?>
              <tr><td><?php
             echo $bug->getId();?></td>
@@ -48,7 +48,8 @@ $manager->load();
             
                 </td>
                 <td><a href="show.php?id=<?=$bug->getId()?>">voir plus</a></td>
-                <td> </td>
+                <td> <?php echo $bug->getCreatedAt();?></td>
+                 <td> <?php echo $bug->getClosed();?></td>
             </tr>
                 
                 <?php

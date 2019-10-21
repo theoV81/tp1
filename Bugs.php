@@ -17,12 +17,15 @@ and open the template in the editor.
                 public $Description;
                 public $titre;
                 public $status;
-               
-                function __construct($Id, $titre, $Description,$status) {
+                public $createdAt;
+                public $closed;
+                function __construct($Id, $titre, $Description,$status,$createdAt,$closed) {
                     $this->Id = $Id;
                     $this->Description = $Description;
                     $this->titre = $titre;
                     $this->status = $status;
+                    $this->createdAt = $createdAt;
+                    $this->closed = $closed;
                 }
 
                 function getId() {
@@ -41,6 +44,14 @@ and open the template in the editor.
                     return $this->status;
                 }
 
+                function getCreatedAt() {
+                    return $this->createdAt;
+                }
+
+                function getClosed() {
+                    return $this->closed;
+                }
+
                 function setId($Id) {
                     $this->Id = $Id;
                 }
@@ -56,8 +67,14 @@ and open the template in the editor.
                 function setStatus($status) {
                     $this->status = $status;
                 }
-                
-                           
+
+                function setCreatedAt($createdAt) {
+                    $this->createdAt = $createdAt;
+                }
+
+                function setClosed($closed) {
+                    $this->closed = $closed;
+                }   
         }
         ?>
     </body>

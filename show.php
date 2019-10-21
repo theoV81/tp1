@@ -1,11 +1,9 @@
 <?php
-include ('BugManager.php');
-require_once ('connexion.php');
-$dbh = connexionBDD();
+require ('BugManager.php');
 
 $Id = $_GET['id'];
 $bugManager = new BugManager();
-$bug = $bugManager->find($Id,$dbh);
+$bug = $bugManager->find($Id);
 
 ?>
 <html>
@@ -15,6 +13,7 @@ $bug = $bugManager->find($Id,$dbh);
        <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
     </head>
     <body >
+    <center><a href="javascript:history.go(-1)">Retour</a>          </center>
         <table class="table-fill">
 <thead>
 <tr>
@@ -36,7 +35,8 @@ $bug = $bugManager->find($Id,$dbh);
                    
            ?>
     </td>
+  
 </tr>
-   
-           
+<tr>
+</tr>
 </table>     
