@@ -1,0 +1,14 @@
+{
+    "name": "eleve/tp1",
+    "authors": [
+        {
+            "name": "Theo",
+            "email": "vialatheo@hotmail.fr"
+        }
+    ],
+    "autoload":{
+          "psr-4":{
+            "BugApp\\":"src/"
+          }
+        }
+}
