@@ -65,7 +65,7 @@ class bugController {
       $bug->setURL($_POST['URL']);
       $bug->setIP($IP);
       $bugManager->add($bug);
-      //header ('Location: /works/tp1/list');
+      header ('Location: /works/tp1/list');
 
 
     } else {
