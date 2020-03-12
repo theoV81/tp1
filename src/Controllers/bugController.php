@@ -54,7 +54,7 @@ class bugController {
       $bug->setDescription($_POST['Description']);
      if(empty($_POST['createdAt'])){
        $date = new \DateTime();
-       $datetim = $date->Format("y-m-d");
+       $datetim = $date->Format("yy-m-d");
          $bug->setCreatedAt($datetim);
       }else {
         $bug->setCreatedAt($_POST['createdAt']);
