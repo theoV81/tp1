@@ -8,13 +8,17 @@ namespace BugApp\Models;
                 public $status;
                 public $createdAt;
                 public $closed;
-                function __construct($Id, $titre, $Description,$status,$createdAt,$closed) {
+                public $IP;
+                public $URL;
+                function __construct($Id, $titre, $Description,$status,$createdAt,$closed,$URL,$IP) {
                     $this->Id = $Id;
                     $this->Description = $Description;
                     $this->titre = $titre;
                     $this->status = $status;
                     $this->createdAt = $createdAt;
                     $this->closed = $closed;
+                    $this->URL = $URL;
+                    $this->IP = $IP;
                 }
 
                 function getId() {
@@ -40,6 +44,13 @@ namespace BugApp\Models;
                 function getClosed() {
                     return $this->closed;
                 }
+                function getURL() {
+                    return $this->URL;
+                }
+
+                function getIP() {
+                    return $this->IP;
+                }
 
                 function setId($Id) {
                     $this->Id = $Id;
@@ -63,5 +74,13 @@ namespace BugApp\Models;
 
                 function setClosed($closed) {
                     $this->closed = $closed;
+                }
+
+                function setIP($IP) {
+                    $this->IP = $IP;
+                }
+
+                function setURL($URL) {
+                    $this->URL = $URL;
                 }
         }

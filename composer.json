@@ -10,5 +10,8 @@
           "psr-4":{
             "BugApp\\":"src/"
           }
-        }
+        },
+    "require": {
+        "guzzlehttp/guzzle": "^6.5"
+    }
 }

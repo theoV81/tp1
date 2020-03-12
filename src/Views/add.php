@@ -1,22 +1,3 @@
-<?php
-use BugApp\Models\bugManager;
-if (!empty($_POST)) {
-
-  foreach ($_POST as $key => $value) {
-    $data[$key] = htmlspecialchars($value, ENT_QUOTES);
-    //echo $data;
-  }
-
-  // Save BDD
-  $manager = new BugManager();
-  $manager->add($data);
-
-  // Redirection vers list.php
-  header("Location:list.php");
-  //echo '<meta http-equiv="refresh" content="0; URL=list.php" />';
-}
-?>
-
 <html>
 <head>
   <meta charset="utf-8" />
@@ -38,9 +19,10 @@ if (!empty($_POST)) {
         <td>
 
           <form action="" method="post">
-            <input type="text" name="titre" value="" placeholder="Titre du bug"/>
-            <input type="text" name="description" value="" placeholder="Description du bug"/>
-            <input type="text" name="createdAt" value="" placeholder="YYYY-MM-JJ"/>
+            Titre<input type="text" name="titre" value="" placeholder="Titre du bug" style="margin : 10px"/>
+            Description<input type="text" name="Description" value="" placeholder="Description du bug" style="margin : 13px"/>
+            Date<input type="text" name="createdAt" value="" placeholder="YYYY-MM-JJ" style="margin : 10px"/>
+            URL<textarea type="text" name="URL" value="" placeholder="ex: https://www.google.com/.../..." style="margin : 10px"></textarea>
             <p></p>
             <input type="radio" name="closed" value="1"/> Bug fermer
             <input type="radio" name="closed" value="0" />Bug ouvert

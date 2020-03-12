@@ -1,6 +1,8 @@
 <?php
 namespace BugApp\Controllers;
 use BugApp\Models\bugManager;
+use GuzzleHttp\Client;
+use BugApp\Models\bug;
 //require_once ('Models/bugManager.php');
 class bugController {
 
@@ -36,14 +38,34 @@ class bugController {
 
   function add()
   {
-    if (isset($_POST['submit']))
+    //var_dump($_POST);
+    if (isset($_POST['titre']))
     {
+      if (!empty($_POST)) {
+
+        foreach ($_POST as $key => $value) {
+          $data[$key] = htmlspecialchars($value, ENT_QUOTES);
+          //echo $data;
+        }
+      }
       $bugManager = new BugManager();
-      $bug = new bug();
+      $bug = new bug("","","","","","","","");
       $bug->setTitre($_POST['titre']);
       $bug->setDescription($_POST['Description']);
+     if(empty($_POST['createdAt'])){
+       $date = new \DateTime();
+       $datetim = $date->Format("y-m-d");
+         $bug->setCreatedAt($datetim);
+      }else {
+        $bug->setCreatedAt($_POST['createdAt']);
+      }
+      $bug->setClosed($_POST['closed']);
+      $responseApi = $this->Recup_IP_URL($_POST['URL']);
+      $IP = $responseApi->query;
+      $bug->setURL($_POST['URL']);
+      $bug->setIP($IP);
       $bugManager->add($bug);
-      header ('Location: /tp1/list');
+      //header ('Location: /works/tp1/list');
 
 
     } else {
@@ -100,5 +122,19 @@ class bugController {
       header('Content-Type: text/html');
       echo $content;
 
+    }
+
+    function Recup_IP_URL($URL) {
+      echo 'Recup NDD :     ';
+      $parse = parse_url($URL);
+      $nomDeDomaine = $parse['host'];
+      echo $nomDeDomaine;
+      $client = new Client();
+      $response = $client->request('GET', "http://ip-api.com/json/$nomDeDomaine");
+      $body = $response->getBody(); // '{"id": 1420053, "name": "guzzle", ...}
+      $remainingBytes = $body->getContents();
+      $responseAPI = json_decode($remainingBytes); 
+      return $responseAPI; 
+      
     }
   }

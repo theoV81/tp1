@@ -22,6 +22,8 @@
         <th class="text-left">Titre</th>
         <th class="text-left">Description</th>
         <th class="text-left">Date de creation</th>
+        <th class="text-left">URL</th>
+        <th class="text-left">IP</th>
         <th class="text-left">status</th>
         <th class="text-left">Résolue</th>
 
@@ -41,6 +43,8 @@
           </td>
           <td><a href="show/<?=$bug->getId()?>">voir plus</a></td>
           <td> <?php echo $bug->getCreatedAt();?></td>
+          <td><?php echo $bug->getURL();?></td>
+          <td><?php echo $bug->getIP();?></td>
           <td id="td_<?=$bug->getId() ?>"><center> <?php if(($bug->getClosed())==0) {
            echo '<img src="nvalider.png" border="0" class="imgstatus" height="30px" width="30px"   /></div>';
          }

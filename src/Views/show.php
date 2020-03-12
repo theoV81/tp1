@@ -13,6 +13,8 @@ $bug=$parameters["bug"];
     <thead>
       <tr>
         <th class="text-left">Description</th>
+        <th class="text-left">URL</th>
+
 
       </tr>
     </thead>
@@ -21,9 +23,15 @@ $bug=$parameters["bug"];
         <td>
           <?php
           echo $bug->getDescription();
+
           ?>
         </td>
+        <td>
+          <?php
+          echo $bug->getURL();
 
+          ?>
+        </td>
       </tr>
       <tr>
       </tr>
